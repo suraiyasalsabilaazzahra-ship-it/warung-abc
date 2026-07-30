@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2026 at 07:18 AM
+-- Generation Time: Jul 30, 2026 at 06:19 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,6 +63,15 @@ CREATE TABLE `tbl_log` (
   `waktu` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_log`
+--
+
+INSERT INTO `tbl_log` (`id_log`, `id_user`, `aktivitas`, `waktu`) VALUES
+(1, 3, 'login', '2026-07-30 05:55:50'),
+(2, 3, 'logout', '2026-07-30 05:57:13'),
+(3, 3, 'login', '2026-07-30 05:57:31');
+
 -- --------------------------------------------------------
 
 --
@@ -101,9 +110,16 @@ CREATE TABLE `tbl_user` (
   `id_user` int(11) NOT NULL,
   `nama_lengkap` varchar(100) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `paaword` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `role` enum('admin','kasir','gudang','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id_user`, `nama_lengkap`, `username`, `password`, `role`) VALUES
+(3, 'Administrator', 'admin', '$2y$10$2L8y6A0.Y5NACJIVatkSx.5MguhwE0voG3uCGzVmHgpkIiyp0A.Hu', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -165,7 +181,7 @@ ALTER TABLE `tbl_detail_trasaksi`
 -- AUTO_INCREMENT for table `tbl_log`
 --
 ALTER TABLE `tbl_log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_pelanggan`
@@ -183,7 +199,7 @@ ALTER TABLE `tbl_transaksi`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
